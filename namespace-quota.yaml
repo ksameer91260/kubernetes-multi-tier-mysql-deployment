@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod-mysql-app
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mysql-quota
+  namespace: prod-mysql-app
+spec:
+  hard:
+    pods: "4"
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
